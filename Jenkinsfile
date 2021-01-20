@@ -38,7 +38,7 @@ pipeline{
              sh "pwd"
              sh "echo 'This is my aws access key $AWS_ACCESS_KEY_ID'"
              sh 'terraform apply -auto-approve'
-             sh 'terraform destroy -auto-approve'    
+                 
             }
                   
         }
