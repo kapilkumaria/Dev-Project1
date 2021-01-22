@@ -17,9 +17,11 @@ service apache2 enable
 cp dir.conf /etc/apache2/mods-enabled/dir.conf
 cp 000-default.conf /etc/apache2/sites-enabled/000-default.conf
 mkdir /var/www/html/Dev-Project1
-cp index.js /var/www/html/Dev-Project1/
-cp index.test.js /var/www/html/Dev-Project1/
-cp package.json /var/www/html/Dev-Project1/
+cp /var/lib/jenkins/workspace/kk1/dev/index.js /var/www/html/Dev-Project1/
+cp /var/lib/jenkins/workspace/kk1/dev/index.test.js /var/www/html/Dev-Project1/
+cp /var/lib/jenkins/workspace/kk1/dev/package.json /var/www/html/Dev-Project1/
+cp /var/lib/jenkins/workspace/kk1/dev/000-default.conf /etc/apache2/sites-enabled/
+cp /var/lib/jenkins/workspace/kk1/dev/dir.conf /etc/apache2/mods-enabled/
 apt install nodejs -y
 apt install npm -y
 npm install
