@@ -56,36 +56,6 @@ resource "aws_lb_listener" "kk-listener" {
 }
 
 
-# resource "aws_lb_listener_rule" "logfiles" {
-#     listener_arn = aws_lb_listener.logfiles-listener.arn
-#     priority = 100
-
-#     action {
-#         type = "forward"
-#         target_group_arn = aws_lb_target_group.kk-tg.arn
-#     }
-
-# }
-
-
-
-# resource "aws_lb_listener_rule" "images" {
-#     listener_arn = aws_lb_listener.logfiles-listener.arn
-#     priority = 200
-
-#     action {
-#         type = "forward"
-#         target_group_arn = aws_lb_target_group.images-tg.arn
-#     }
-
-#     condition {
-#         path_pattern {
-#             values = ["/images/*"]
-#         }
-#     }
-# }
-
-
 resource "aws_alb_target_group_attachment" "ec2_web1_attach" {
     target_group_arn = aws_lb_target_group.kk-tg.arn
     target_id = var.instanceattachment1_id

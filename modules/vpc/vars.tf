@@ -1,3 +1,7 @@
+variable "env" {
+    default = "dev"
+}
+
 ## Region in which the resources to be deployed
 variable "region" {
     default = "ca-central-1"

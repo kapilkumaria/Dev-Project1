@@ -16,13 +16,13 @@ service apache2 start
 service apache2 enable
 cp dir.conf /etc/apache2/mods-enabled/dir.conf
 cp 000-default.conf /etc/apache2/sites-enabled/000-default.conf
-cd /var/www/html
-mkdir Dev-Project1
-cp ../../index.js /var/www/html/Dev-Project1/index.js
-cp ../../index.test.js /var/www/html/Dev-Project1/index.test.js
-cp ../package.json /var/www/html/Dev-Project1/package.json
+mkdir /var/www/html/Dev-Project1
+cp index.js /var/www/html/Dev-Project1/
+cp index.test.js /var/www/html/Dev-Project1/
+cp package.json /var/www/html/Dev-Project1/
 apt install nodejs -y
 apt install npm -y
 npm install
-service apache2 start
+service apache2 reload
+service apache2 restart
 npm start

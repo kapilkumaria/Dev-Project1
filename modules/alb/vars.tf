@@ -10,9 +10,9 @@ variable "tg1-tag" {
 }
 
 # # Target Group 2 Tag
-# variable "tg2-tag" {
-#     default = "kapil-images-tg"
-# }
+variable "tg2-tag" {
+    default = "kapil-images-tg"
+}
 
 
 

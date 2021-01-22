@@ -37,9 +37,9 @@ module "sg" {
    source            = "../modules/sg"
    vpc-id            = module.vpc.vpc_id
    your-ip           = var.your-ip
-   kapil-sg-bastion  = var.kapil-sg-bastion
+   #kapil-sg-bastion  = var.kapil-sg-bastion
    kapil-sg-web      = var.kapil-sg-web
-   kapil-sg-db       = var.kapil-sg-db
+   #kapil-sg-db       = var.kapil-sg-db
    kapil-sg-alb      = var.kapil-sg-alb
 }
 
@@ -57,16 +57,16 @@ module "ec2" {
    public-1b               = module.vpc.public-1b
    private-1a              = module.vpc.private-1a
    private-1b              = module.vpc.private-1b
-   sgforbastion            = module.sg.bastion_sg
+   #sgforbastion            = module.sg.bastion_sg
    sgforweb                = module.sg.web_sg 
-   sgfordb                 = module.sg.db_sg
+   #sgfordb                 = module.sg.db_sg
    public-subnets          = module.vpc.public_subnet_ids
    private-subnets         = module.vpc.private_subnet_ids
-   instance-type-bastion   = var.instance-type-bastion
+   #instance-type-bastion   = var.instance-type-bastion
    instance-type-web       = var.instance-type-web
-   instance-type-db        = var.instance-type-db 
+   #instance-type-db        = var.instance-type-db 
    key-name                = var.key-name 
-   bastion-ec2-tag         = var.bastion-ec2-tag
+   #bastion-ec2-tag         = var.bastion-ec2-tag
 }
 
 
@@ -81,5 +81,5 @@ module "my_alb" {
    instanceattachment2_id  = module.ec2.web_1b_id
    alb-tag                 = var.alb-tag
    tg1-tag                 = var.tg1-tag
-#   tg2-tag                 = var.tg2-tag
+   #tg2-tag                 = var.tg2-tag
 }

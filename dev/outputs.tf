@@ -23,17 +23,17 @@ output "SUBNET_PRIVATE_1b" {
    value = module.vpc.private-1b
 }
 
-output "BASTION_SG_ID" {
-     value = module.sg.bastion_sg
-}
+# output "BASTION_SG_ID" {
+#      value = module.sg.bastion_sg
+# }
 
 output "WEB_SG_ID" {
      value = module.sg.web_sg
 }
 
-output "DB_SG_ID" {
-     value = module.sg.db_sg
-}
+# output "DB_SG_ID" {
+#      value = module.sg.db_sg
+# }
 
 output "ALB_SG" {
      value = module.sg.alb_sg
