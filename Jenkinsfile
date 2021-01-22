@@ -26,7 +26,7 @@ pipeline{
             }
             
         }
-         stage('Terraform apply and destroy'){
+         stage('Terraform apply?'){
             environment {
                 AWS_ACCESS_KEY_ID = credentials('KAPIL_ACCESS_KEY')
                 AWS_SECRET_ACCESS_KEY = credentials('KAPIL_SECRET_KEY')
@@ -39,6 +39,21 @@ pipeline{
              sh "echo 'This is my aws access key $AWS_ACCESS_KEY_ID'"
              input "Continue?"
              sh 'terraform apply -auto-approve'  
+            }
+        }
+    }
+
+    stage('Terraform destroy?'){
+            environment {
+                AWS_ACCESS_KEY_ID = credentials('KAPIL_ACCESS_KEY')
+                AWS_SECRET_ACCESS_KEY = credentials('KAPIL_SECRET_KEY')
+                AWS_SESSION_TOKEN = credentials('KAPIL_SESSION_TOKEN')
+            }
+            steps {
+             sh "pwd"
+             dir('dev'){
+             sh "pwd"
+             sh "echo 'This is my aws access key $AWS_ACCESS_KEY_ID'"
              input "Continue?"
              sh 'terraform destroy -auto-approve'   
             }
