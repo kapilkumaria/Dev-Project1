@@ -25,6 +25,7 @@ pipeline{
               sh "pwd"
               sh 'terraform init'
           }
+         }
         }
                 
          stage('Terraform apply?'){
@@ -35,7 +36,7 @@ pipeline{
               input "Continue?"
               sh 'terraform apply -auto-approve'  
           }
-        }
+         }
         }
             
          stage('Terraform destroy?'){
@@ -45,9 +46,9 @@ pipeline{
               sh "pwd"
               input "Continue?"
               sh 'terraform destroy -auto-approve'   
-        }
-      }
+          }
          }
+        }
     }
 }
 
