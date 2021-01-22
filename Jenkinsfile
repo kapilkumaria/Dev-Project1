@@ -18,15 +18,6 @@ pipeline{
             }
         }
 
-         stage('Changing Directory to execute Terraform Commands'){
-            steps {
-             sh "pwd"
-             dir('dev'){
-              sh "pwd"
-            }
-         }
-        }
-
          stage('Terraform init'){
            steps {
              sh "pwd"
