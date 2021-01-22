@@ -4,6 +4,11 @@ pipeline{
        terraform 'terraform'
     }
     
+    environment {
+                AWS_ACCESS_KEY_ID = credentials('KAPIL_ACCESS_KEY')
+                AWS_SECRET_ACCESS_KEY = credentials('KAPIL_SECRET_KEY')
+                AWS_SESSION_TOKEN = credentials('KAPIL_SESSION_TOKEN')
+    }
     
     stages{
         
@@ -27,11 +32,7 @@ pipeline{
             
         }
          stage('Terraform apply?'){
-            environment {
-                AWS_ACCESS_KEY_ID = credentials('KAPIL_ACCESS_KEY')
-                AWS_SECRET_ACCESS_KEY = credentials('KAPIL_SECRET_KEY')
-                AWS_SESSION_TOKEN = credentials('KAPIL_SESSION_TOKEN')
-            }
+    
             steps {
              sh "pwd"
              dir('dev'){
@@ -44,11 +45,7 @@ pipeline{
     }
 
     stage('Terraform destroy?'){
-            environment {
-                AWS_ACCESS_KEY_ID = credentials('KAPIL_ACCESS_KEY')
-                AWS_SECRET_ACCESS_KEY = credentials('KAPIL_SECRET_KEY')
-                AWS_SESSION_TOKEN = credentials('KAPIL_SESSION_TOKEN')
-            }
+    
             steps {
              sh "pwd"
              dir('dev'){
