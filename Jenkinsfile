@@ -24,7 +24,7 @@ pipeline{
              dir('dev'){
               sh "pwd"
              }
-             sh 'terraform init'
+           sh 'terraform init'
           }
         }
                 
@@ -34,9 +34,9 @@ pipeline{
              dir('dev'){
               sh "pwd"
             }
-            sh "pwd"
-            input "Continue?"
-            sh 'terraform apply -auto-approve'  
+           sh "pwd"
+           input "Continue?"
+           sh 'terraform apply -auto-approve'  
           }
         }
             
@@ -46,9 +46,9 @@ pipeline{
              dir('dev'){
               sh "pwd"
             }
-            sh "pwd"
-            input "Continue?"
-            sh 'terraform destroy -auto-approve'   
+           sh "pwd"
+           input "Continue?"
+           sh 'terraform destroy -auto-approve'   
         }
       }
     }
