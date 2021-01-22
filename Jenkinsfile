@@ -18,43 +18,39 @@ pipeline{
             }
         }
 
-         
-
-         stage('Terraform init'){
-          steps {
-            sh "pwd"
-            dir('dev'){
-            sh "pwd"
-            sh 'terraform init'
-          }
-          
-            }
-            
-        }
-         stage('Terraform apply?'){
-    
+         stage('Changing Directory to execute Terraform Commands'){
             steps {
              sh "pwd"
              dir('dev'){
+              sh "pwd"
+            }
+         }
+        }
+
+         stage('Terraform init'){
+           steps {
+            sh "pwd"
+            sh 'terraform init'
+          }
+        }
+                
+         stage('Terraform apply?'){
+           steps {
              sh "pwd"
-             sh "echo 'This is my aws access key $AWS_ACCESS_KEY_ID'"
              input "Continue?"
              sh 'terraform apply -auto-approve'  
             }
         }
-    }
-
-    stage('Terraform destroy?'){
     
-            steps {
+
+         stage('Terraform destroy?'){
+           steps {
              sh "pwd"
-             dir('dev'){
-             sh "pwd"
-             sh "echo 'This is my aws access key $AWS_ACCESS_KEY_ID'"
              input "Continue?"
              sh 'terraform destroy -auto-approve'   
             }
         }
-    }
 }
 }
+
+
