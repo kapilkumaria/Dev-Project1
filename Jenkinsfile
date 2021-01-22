@@ -29,28 +29,36 @@ pipeline{
 
          stage('Terraform init'){
            steps {
-            sh "pwd"
-            sh 'terraform init'
+             sh "pwd"
+             dir('dev'){
+              sh "pwd"
+              sh 'terraform init'
+             }
           }
         }
                 
          stage('Terraform apply?'){
            steps {
              sh "pwd"
-             input "Continue?"
-             sh 'terraform apply -auto-approve'  
+             dir('dev'){
+              sh "pwd"
+              input "Continue?"
+              sh 'terraform apply -auto-approve'  
             }
+          }
         }
     
-
          stage('Terraform destroy?'){
            steps {
              sh "pwd"
-             input "Continue?"
-             sh 'terraform destroy -auto-approve'   
+             dir('dev'){
+              sh "pwd"
+              input "Continue?"
+              sh 'terraform destroy -auto-approve'   
             }
         }
-}
+      }
+    }
 }
 
 
