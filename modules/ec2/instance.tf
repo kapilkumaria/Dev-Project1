@@ -26,7 +26,24 @@ resource "aws_instance" "web" {
   tags = {
     Name = element(var.instance-web-tags, count.index)
   }
-}
+
+  
+  provisioner "file" {
+    #source                  = "index.js" 
+    #destination             = "/var/www/html/Dev-Project1"
+    source                   = "000-default.conf"
+    destination              = "/etc/apache2/sites-enabled"
+
+    connection {
+    type        = "ssh"
+    host        = self.public_ip
+    user        = "ubuntu"
+    private_key = file("/home/ubuntu/kapilKP.pem")
+  }
+  }
+  
+  }
+
 
 
 # resource "aws_instance" "db" {

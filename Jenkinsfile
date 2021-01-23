@@ -38,7 +38,8 @@ pipeline{
           }
          }
         }
-            
+
+                  
          stage('Terraform destroy?'){
            environment {
                 AWS_ACCESS_KEY_ID = credentials('KAPIL_ACCESS_KEY')
