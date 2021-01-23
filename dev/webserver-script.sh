@@ -15,6 +15,9 @@ apt install apache2 -y
 service apache2 start
 service apache2 enable
 mkdir /var/www/html/Dev-Project1
+chmod -R 777 /var/www/html/Dev-Project1/
+chmod -R 777 /etc/apache2/sites-available/
+chmod -R 777 /etc/apache2/mods-available/
 apt install nodejs -y
 apt install npm -y
 npm install

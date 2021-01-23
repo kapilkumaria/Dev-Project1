@@ -1,19 +1,4 @@
 
-
-# resource "aws_instance" "bastion" {
-#     count                   = var.env == "prod" ? 1 : 0
-#     ami                     = var.ami-id-bastion
-#     instance_type           = var.instance-type-bastion
-#     subnet_id               = var.public-1a
-#     vpc_security_group_ids  = [var.sgforbastion]
-#     key_name                = var.key-name
-    
-#     tags = {
-#       Name                  = var.bastion-ec2-tag
-#     }
-# }
-    
-
 resource "aws_instance" "web" {
   count                     = length(var.instance-web-tags)
   ami                       = lookup(var.ami, var.region)
@@ -27,35 +12,73 @@ resource "aws_instance" "web" {
     Name = element(var.instance-web-tags, count.index)
   }
 
-  
-  provisioner "file" {
-    #source                  = "index.js" 
-    #destination             = "/var/www/html/Dev-Project1"
-    source                   = "000-default.conf"
-    destination              = "/etc/apache2/sites-enabled"
-
-    connection {
+  connection {
     type        = "ssh"
     host        = self.public_ip
     user        = "ubuntu"
     private_key = file("/home/ubuntu/kapilKP.pem")
   }
+
+  provisioner "remote-exec" {
+    inline = [
+      "sleep 60"
+    ]
   }
   
+  provisioner "file" {
+    source                  = "index.js" 
+    destination             = "/var/www/html/Dev-Project1/index.js"
+        
+  }
+  
+  provisioner "remote-exec" {
+    inline = [
+      "sleep 20"
+    ]
   }
 
+  provisioner "file" {
+    source                  = "index.test.js" 
+    destination             = "/var/www/html/Dev-Project1/index.test.js"
+        
+  }
 
+  provisioner "remote-exec" {
+    inline = [
+      "sleep 20"
+    ]
+  }
 
-# resource "aws_instance" "db" {
-#   count                     = var.env == "prod" ? 1 : 0
-#   #count                     = length(var.instance-db-tags)
-#   ami                       = lookup(var.ami, var.region)
-#   instance_type             = var.instance-type-db
-#   subnet_id                 = element(var.private-subnets, count.index)
-#   vpc_security_group_ids    = [var.sgfordb]
-#   key_name                  = var.key-name
+  
+  provisioner "file" {
+    source                  = "package.json" 
+    destination             = "/var/www/html/Dev-Project1/package.json"
+        
+  }
     
-#   tags = {
-#     Name = element(var.instance-db-tags, count.index)
-#   }
-# }
+  provisioner "remote-exec" {
+    inline = [
+      "sleep 20"
+    ]
+  }
+  
+  
+  
+  provisioner "file" {
+    source                  = "000-default.conf" 
+    destination             = "/etc/apache2/sites-available/000-default.conf"
+       
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "sleep 20"
+    ]
+  }
+  
+  provisioner "file" {
+    source                  = "dir.conf" 
+    destination             = "/etc/apache2/mods-available/dir.conf"
+       
+  }
+  }
