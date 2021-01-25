@@ -4,7 +4,18 @@ pipeline{
        terraform 'terraform'
     }
     
-    
+    node {
+    checkout scm
+
+    docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
+
+        def customImage = docker.build("kappu1512/dockerwebapp")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
+      }
+    }
+
     stages{
         
          stage('Git Checkout'){
@@ -12,6 +23,7 @@ pipeline{
                 git branch: 'feature01', credentialsId: 'd65caf3a-ef40-43d3-b1a1-624e7dcc4ca4', url: 'https://github.com/kapilkumaria/Dev-Project1.git'
             }
         }
+        
 
          stage('Terraform init'){
            steps {
