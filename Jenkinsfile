@@ -4,18 +4,6 @@ pipeline{
        terraform 'terraform'
     }
     
-    node {
-    checkout scm
-
-    docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
-
-        def customImage = docker.build("kappu1512/dockerwebapp")
-
-        /* Push the container to the custom Registry */
-        customImage.push()
-      }
-    }
-
     stages{
         
          stage('Git Checkout'){
