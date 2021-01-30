@@ -1,4 +1,12 @@
 pipeline{
+
+  environment {
+    imagename           = "kappu1512/node-app"
+    registryCredential  = 'dockerHub'
+    dockerImage         = ''
+    }
+
+
     agent any
     tools {
        terraform 'terraform'
@@ -16,7 +24,7 @@ pipeline{
          stage('Building image') {
             steps{
               script {
-                dockerImage = docker.build node-app
+                dockerImage = docker.build imagename
               }
             }
           }
