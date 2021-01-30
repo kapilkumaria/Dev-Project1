@@ -21,7 +21,7 @@ pipeline{
         }
         
 
-         stage('Building image') {
+         stage('Building Docker Image') {
             steps{
               script {
                 dockerImage = docker.build imagename
@@ -29,7 +29,7 @@ pipeline{
             }
           }
 
-         stage('Deploy Image') {
+         stage('Push Image to DockerHub') {
             steps{
               script {
                  docker.withRegistry( '', dockerHub ) {
@@ -40,6 +40,12 @@ pipeline{
             }
           }
 
+         stage('Remove Unused docker image') {
+           steps{
+             sh "docker rmi $imagename:$BUILD_NUMBER"
+             sh "docker rmi $imagename:latest"
+            }
+         }
 
          stage('Terraform init'){
            steps {
