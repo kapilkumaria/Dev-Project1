@@ -13,6 +13,26 @@ pipeline{
         }
         
 
+         stage('Building image') {
+            steps{
+              script {
+                dockerImage = docker.build node-app
+              }
+            }
+          }
+
+         stage('Deploy Image') {
+            steps{
+              script {
+                 docker.withRegistry( '', dockerHub ) {
+                 dockerImage.push("$BUILD_NUMBER")
+                 dockerImage.push('latest')
+                }
+              }
+            }
+          }
+
+
          stage('Terraform init'){
            steps {
              sh "pwd"
