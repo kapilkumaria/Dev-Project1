@@ -54,7 +54,7 @@ variable "instance-type-db" {
 ########################### Key-Name for EC2 Instances (Bastion, Web and DB Servers) #############################
 # Key-Name for Launching EC2 Instances
 variable "key-name" {
-    default = "kapilKP"
+    default = "ec2cloudwatch"
 }
 
 ########################### EC2 Instances (Bastion, Web and DB Servers) Tags #####################################
