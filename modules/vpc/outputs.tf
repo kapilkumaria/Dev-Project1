@@ -16,22 +16,22 @@ output "private_subnet_ids" {
   value = aws_subnet.pri-sub.*.id
 }
 
-# output "public-1a" {
-#      value = aws_subnet.pub-sub[0].id
-# } 
+output "public-1a" {
+     value = aws_subnet.pub-sub[0].id
+} 
 
-# output "public-1b" {
-#      value = aws_subnet.pub-sub[1].id
-# }
+output "public-1b" {
+     value = aws_subnet.pub-sub[1].id
+}
 
 
-# output "private-1a" {
-#      value = aws_subnet.pri-sub[0].id
-# }
+output "private-1a" {
+     value = aws_subnet.pri-sub[0].id
+}
 
-# output "private-1b" {
-#      value = aws_subnet.pri-sub[1].id
-# }
+output "private-1b" {
+     value = aws_subnet.pri-sub[1].id
+}
 
 output "public_rt_id" {
     value = aws_route_table.publicrt.id
