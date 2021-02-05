@@ -4,7 +4,7 @@ pipeline{
     VERSION = "${BUILD_NUMBER}"
     PROJECT = 'nodeapp'
     IMAGE = "$PROJECT:$VERSION"
-    ECRURL = 'https://931058976119.dkr.ecr.ca-central-1.amazonaws.com/my-nodeapp'
+    ECRURL = 'https://931058976119.dkr.ecr.us-east-1.amazonaws.com/my-nodeapp'
     ECRCRED = 'ecr:us-east-1:awscredentials'
     }
 
