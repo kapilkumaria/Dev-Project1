@@ -22,17 +22,17 @@ variable "dynamodb-table-tag" {
 ########################### AMI IDs for EC2 Instances (Bastion, Web and DB Servers) #############################
 # AMI ID for Bastion/Jump-Box Server
 variable "ami-id-bastion" {
-    default = "ami-02e44367276fe7adc"
+#    default = "ami-02e44367276fe7adc"
 }
 
 # AMI ID for Web Servers
 variable "ami-id-web" {
-    default = "ami-02e44367276fe7adc"
+#    default = "ami-02e44367276fe7adc"
 }
 
 # AMI ID for Database Servers
 variable "ami-id-db" {
-    default = "ami-02e44367276fe7adc"
+#    default = "ami-02e44367276fe7adc"
 }
 
 ########################### Instance Types for EC2 Instances (Bastion, Web and DB Servers) #############################
@@ -204,22 +204,22 @@ variable "sub-pri-1b-tag" {
 ########################### Subnets Availablilty Zones #############################
 # Availablilty Zone for Public Subnet in 1a
 variable "az-pub-1a" {
-    default = "cac1-az1"
+#    default = "cac1-az1"
 }
 
 # Availablilty Zone for Public Subnet in 1b
 variable "az-pub-1b" {
-   default = "cac1-az2"
+#   default = "cac1-az2"
 }
 
 # Availablilty Zone for Private Subnet in 1a
 variable "az-pri-1a" {
-   default = "cac1-az1"
+#   default = "cac1-az1"
 }
 
 # Availablilty Zone for Private Subnet in 1b
 variable "az-pri-1b" {
-   default = "cac1-az2"
+#   default = "cac1-az2"
 }
 
 ########################### VPC Route Tables ########################################
