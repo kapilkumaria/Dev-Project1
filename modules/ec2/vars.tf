@@ -47,7 +47,7 @@ variable "ami" {
 
     default = {
         "ca-central-1"  = "ami-02e44367276fe7adc"
-        "us-east-1"     = "ami-02e44367276fe7adc"
+        "us-east-1"     = "ami-00ddb0e5626798373"
     }
 }
 
