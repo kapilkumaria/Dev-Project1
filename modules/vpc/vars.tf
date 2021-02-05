@@ -52,16 +52,16 @@ variable "pri-subnet-tags" {
 variable "pub-sub-azs" {
     type    = list(string)
     default = [
-        "cac1-az1",
-        "cac1-az2"
+        "use1-az1",
+        "use1-az2"
     ]
 }
 
 variable "pri-sub-azs" {
     type    = list(string)
     default = [
-        "cac1-az1",
-        "cac1-az2"
+        "use1-az1",
+        "use1-az2"
     ]
 }
 
