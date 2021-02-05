@@ -204,22 +204,22 @@ variable "sub-pri-1b-tag" {
 ########################### Subnets Availablilty Zones #############################
 # Availablilty Zone for Public Subnet in 1a
 variable "az-pub-1a" {
-    default = "cac1-az1"
+    default = "use1-az1"
 }
 
 # Availablilty Zone for Public Subnet in 1b
 variable "az-pub-1b" {
-   default = "cac1-az2"
+   default = "use1-az2"
 }
 
 # Availablilty Zone for Private Subnet in 1a
 variable "az-pri-1a" {
-   default = "cac1-az1"
+   default = "use1-az1"
 }
 
 # Availablilty Zone for Private Subnet in 1b
 variable "az-pri-1b" {
-   default = "cac1-az2"
+   default = "use1-az2"
 }
 
 ########################### VPC Route Tables ########################################
