@@ -1,9 +1,11 @@
 pipeline{
 
   environment {
-    imagename           = "kappu1512/node-app"
-    registryCredential  = 'dockerHub'
-    dockerImage         = ''
+    VERSION = "${BUILD_NUMBER}"
+    PROJECT = 'nodeapp'
+    IMAGE = "$PROJECT:$VERSION"
+    ECRURL = 'https://931058976119.dkr.ecr.ca-central-1.amazonaws.com/my-nodeapp'
+    ECRCRED = 'ecr:us-east-1:awscredentials'
     }
 
 
@@ -24,10 +26,21 @@ pipeline{
          stage('Building Docker Image') {
             steps{
               script {
-                dockerImage = docker.build imagename
+                docker.build('$IMAGE')
               }
             }
           }
+
+        stage('Push Image'){
+         steps{
+           script{
+             docker.withRegistry(ECRURL, ECRCRED){
+               docker.image(IMAGE).push()
+               }
+             }
+           }
+         }    
+             
 
          stage('Terraform init'){
            steps {
