@@ -54,7 +54,7 @@ variable "instance-type-db" {
 ########################### Key-Name for EC2 Instances (Bastion, Web and DB Servers) #############################
 # Key-Name for Launching EC2 Instances
 variable "key-name" {
-    default = "ec2cloudwatch"
+    default = "kapilKP"
 }
 
 ########################### EC2 Instances (Bastion, Web and DB Servers) Tags #####################################
@@ -204,22 +204,22 @@ variable "sub-pri-1b-tag" {
 ########################### Subnets Availablilty Zones #############################
 # Availablilty Zone for Public Subnet in 1a
 variable "az-pub-1a" {
-    default = "use1-az1"
+    default = "cac1-az1"
 }
 
 # Availablilty Zone for Public Subnet in 1b
 variable "az-pub-1b" {
-   default = "use1-az2"
+   default = "cac1-az2"
 }
 
 # Availablilty Zone for Private Subnet in 1a
 variable "az-pri-1a" {
-   default = "use1-az1"
+   default = "cac1-az1"
 }
 
 # Availablilty Zone for Private Subnet in 1b
 variable "az-pri-1b" {
-   default = "use1-az2"
+   default = "cac1-az2"
 }
 
 ########################### VPC Route Tables ########################################
