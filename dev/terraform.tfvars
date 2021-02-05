@@ -1,4 +1,4 @@
-region                  = "ca-central-1"
+region                  = "us-east-1"
 vpc-cidr                = "10.0.0.0/26"
 tenancy                 = "default"
 vpc-tag                 = "kapil_ritu_vpc"
