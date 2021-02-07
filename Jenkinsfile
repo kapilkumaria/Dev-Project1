@@ -10,7 +10,7 @@ pipeline{
 
 
     agent {
-       label 'ubuntu​'
+       label 'slave_ubuntu_2004​'
       }
 
     tools {
