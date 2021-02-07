@@ -9,9 +9,7 @@ pipeline{
     }
 
 
-    agent {
-       label 'slave_ubuntu_2004​'
-      }
+    agent 'slave_ubuntu_2004​'
 
     tools {
        terraform 'terraform'
