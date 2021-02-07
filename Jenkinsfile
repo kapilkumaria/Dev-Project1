@@ -9,7 +9,7 @@ pipeline{
     }
 
 
-    agent 'slave_ubuntu_2004​'
+    agent none
 
     tools {
        terraform 'terraform'
@@ -41,6 +41,11 @@ pipeline{
              AWS_ACCESS_KEY_ID = credentials('17437a28-ca2b-4fff-a6a0-dd7b0978a20d')
              AWS_SECRET_ACCESS_KEY = credentials('17437a28-ca2b-4fff-a6a0-dd7b0978a20d')
             }
+
+           agent { 
+             label 'ubuntu​'
+              }
+
            steps {
              sh "pwd"
              dir('dev'){
@@ -57,6 +62,11 @@ pipeline{
              AWS_ACCESS_KEY_ID = credentials('17437a28-ca2b-4fff-a6a0-dd7b0978a20d')
              AWS_SECRET_ACCESS_KEY = credentials('17437a28-ca2b-4fff-a6a0-dd7b0978a20d')
             }
+            
+            agent { 
+             label 'ubuntu​'
+              }
+
            steps {
              sh "pwd"
              dir('dev'){
