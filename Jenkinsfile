@@ -9,7 +9,7 @@ pipeline{
     }
 
 
-    agent none
+    agent any
 
     tools {
        terraform 'terraform'
@@ -31,7 +31,7 @@ pipeline{
            agent { 
              label 'ubuntu​'
               }
-              
+
            steps {
              sh "pwd"
              dir('dev'){
