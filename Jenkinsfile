@@ -29,7 +29,7 @@ pipeline{
          stage('Terraform init'){
 
            agent { 
-             label 'ubuntu​'
+             label 'slave_ubuntu_2004'
               }
 
            steps {
@@ -48,7 +48,7 @@ pipeline{
             }
 
            agent { 
-             label 'ubuntu​'
+             label 'slave_ubuntu_2004​'
               }
 
            steps {
@@ -69,7 +69,7 @@ pipeline{
             }
 
             agent { 
-             label 'ubuntu​'
+             label 'slave_ubuntu_2004​'
               }
 
            steps {
