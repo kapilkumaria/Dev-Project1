@@ -18,7 +18,7 @@ resource "aws_internet_gateway" "igw" {
 
 
 resource "aws_nat_gateway" "nat" {
-     subnet_id      = var.pub-sub-ids
+     subnet_id      = var.pub-sub-1a
      allocation_id  = var.eip-id
 
      tags = {

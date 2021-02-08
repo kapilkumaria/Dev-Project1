@@ -10,7 +10,8 @@
 # }
 
 provider "aws" {
-     region = var.region
+     region  = var.region
+     #version = ">= 1.0"
 }
 
 
@@ -77,8 +78,8 @@ module "my_alb" {
    alb_sg                  = module.sg.alb_sg
    subnet1a_public         = module.vpc.public-1a
    subnet1b_public         = module.vpc.public-1b
-   instanceattachment1_id  = module.ec2.web_ec2_ids
-   instanceattachment2_id  = module.ec2.web_ec2_ids
+   instanceattachment1_id  = module.ec2.web_1a_id
+   instanceattachment2_id  = module.ec2.web_1b_id
    alb-tag                 = var.alb-tag
    tg1-tag                 = var.tg1-tag
    #tg2-tag                 = var.tg2-tag

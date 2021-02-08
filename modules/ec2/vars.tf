@@ -68,7 +68,7 @@ variable "instance-web-tags" {
 
 
 variable "script" {
-    default = "webserver-script.sh"
+    default = "script.sh"
 }
 
 #########################################################################################

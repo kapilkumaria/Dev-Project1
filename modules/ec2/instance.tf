@@ -1,3 +1,7 @@
+provider "aws" {
+     region  = var.region
+     #version = "~> 2.1"
+}
 
 resource "aws_instance" "web" {
   count                     = length(var.instance-web-tags)
