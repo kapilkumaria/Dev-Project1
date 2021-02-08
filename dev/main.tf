@@ -23,7 +23,7 @@ module "vpc" {
     igw-tag          = var.igw-tag
     nat-tag          = var.nat-tag
     eip-id           = module.eip.eip_id
-    pub-sub-ids      = module.vpc.public-1a
+    pub-sub-ids      = module.vpc.public_subnet_ids
     pub-sub-1a       = module.vpc.public-1a
     pub-sub-1b       = module.vpc.public-1b
     pri-sub-1a       = module.vpc.private-1a
@@ -77,8 +77,8 @@ module "my_alb" {
    alb_sg                  = module.sg.alb_sg
    subnet1a_public         = module.vpc.public-1a
    subnet1b_public         = module.vpc.public-1b
-   instanceattachment1_id  = module.ec2.web_1a_id
-   instanceattachment2_id  = module.ec2.web_1b_id
+   instanceattachment1_id  = module.ec2.web_ec2_ids
+   instanceattachment2_id  = module.ec2.web_ec2_ids
    alb-tag                 = var.alb-tag
    tg1-tag                 = var.tg1-tag
    #tg2-tag                 = var.tg2-tag

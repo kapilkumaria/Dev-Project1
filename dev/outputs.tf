@@ -56,11 +56,11 @@ output "NAT_ID" {
 }
 
 output "WEBSERVER_1a_ID" {
-   value = module.ec2.web_1a_id
+   value = module.ec2.web_ec2_ids
 }
 
 output "WEBSERVER_1b_ID" {
-   value = module.ec2.web_1b_id
+   value = module.ec2.web_ec2_ids
 }
 
 # output "DBSERVER_1a_ID" {
