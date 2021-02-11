@@ -34,6 +34,22 @@ pipeline{
             }
           }
         }
+
+
+       stage('Docker Permissions'){
+
+           steps {
+             sh "pwd"
+             dir('dev'){
+             sh "dockerpermission.sh"
+             
+          }
+         }
+        }
+
+
+
+
         
         stage('Push Image'){
           steps{
