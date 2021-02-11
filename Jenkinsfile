@@ -41,7 +41,7 @@ pipeline{
            steps {
              sh "pwd"
              dir('dev'){
-             sh "dockerpermission.sh"
+             sh "./dockerpermission.sh"
              
           }
          }
