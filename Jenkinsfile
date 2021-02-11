@@ -27,16 +27,9 @@ pipeline{
             }
         }
 
-        stage('Image Build'){
-          steps{
-            script{
-              docker.build('$IMAGE')
-            }
-          }
-        }
 
 
-       stage('Docker Permissions'){
+        stage('Docker Permissions'){
 
            steps {
              sh "pwd"
@@ -52,9 +45,16 @@ pipeline{
         }
 
 
+        stage('Image Build'){
+          steps{
+            script{
+              docker.build('$IMAGE')
+            }
+          }
+        }
 
 
-        
+              
         stage('Push Image'){
           steps{
             script{
