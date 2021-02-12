@@ -22,3 +22,6 @@ output "web_ec2_ids" {
 # output "db_ec2_ids" {
 #   value = aws_instance.db.*.id
 # }
+
+#output "instance-profile" {}    
+

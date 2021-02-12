@@ -83,7 +83,7 @@ variable "private-1b" {}
 #variable "sgforbastion" {}
 variable "sgforweb" {}
 #variable "sgfordb" {}
-
+variable "instance-profile" {}
 
 
 
