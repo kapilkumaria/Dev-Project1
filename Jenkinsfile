@@ -26,7 +26,44 @@ pipeline{
                 git branch: 'feature01', credentialsId: 'd65caf3a-ef40-43d3-b1a1-624e7dcc4ca4', url: 'https://github.com/kapilkumaria/Dev-Project1.git'
             }
         }
+        
 
+          stage('Docker Permissions'){
+
+             steps {
+              sh "pwd"
+              dir('dev'){
+              sh "sudo apt install openjdk-8-jdk -y"
+              sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 931058976119.dkr.ecr.us-east-1.amazonaws.com"
+              sh "docker build -t my-nodeapp ."
+              sh "docker tag my-nodeapp:latest 931058976119.dkr.ecr.us-east-1.amazonaws.com/my-nodeapp:latest"
+              sh "docker push 931058976119.dkr.ecr.us-east-1.amazonaws.com/my-nodeapp:latest"
+            }
+         }
+        }
+
+
+        stage('Image Build'){
+          steps{
+            script{
+              docker.build('$IMAGE')
+            }
+          }
+        }
+
+
+              
+        stage('Push Image'){
+          steps{
+            script{
+              docker.withRegistry(ECRURL, ECRCRED)
+              {
+                docker.image(IMAGE).push()
+              }
+            }
+          }
+        }
+        
               
 
          stage('Terraform init'){
