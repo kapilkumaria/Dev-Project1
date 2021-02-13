@@ -11,7 +11,7 @@ pipeline{
     PROJECT = 'nodeapp'
     IMAGE = "$PROJECT:$VERSION"
     ECRURL = 'https://931058976119.dkr.ecr.us-east-1.amazonaws.com/my-nodeapp'
-    ECRCRED = 'ecr:us-east-1:awscredentials'
+    ECRCRED = 'ecr:ca-central-1:awscredentials'
     }
 
 
@@ -74,7 +74,7 @@ pipeline{
             ECRURL = 'https://931058976119.dkr.ecr.us-east-1.amazonaws.com/my-nodeapp'
             ECRCRED = 'ecr:us-east-1:awscredentials'
           }
-          
+
           steps{
             script{
               docker.withRegistry(ECRURL, ECRCRED)
