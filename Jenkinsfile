@@ -1,7 +1,7 @@
 pipeline{
 
   agent {
-    label 'ubuntu'
+    label 'slave2'
   }
 
   tools {
@@ -65,7 +65,6 @@ pipeline{
             }
 
            steps {
-             git branch: 'feature01', credentialsId: 'd65caf3a-ef40-43d3-b1a1-624e7dcc4ca4', url: 'https://github.com/kapilkumaria/Dev-Project1.git'
              sh "pwd"
              dir('dev'){
              sh "pwd"
