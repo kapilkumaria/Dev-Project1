@@ -91,12 +91,17 @@ pipeline{
          }
         }
 
-  post {
-     always {
-         cleanWs()
-        }
-      }
-  }
+         stage('Workspace Cleanup'){
+
+           steps {
+             post {
+                always {
+                    cleanWs()
+                  }
+                }
+             }
+         }
+     }
 }
 
 
