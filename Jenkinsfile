@@ -66,8 +66,19 @@ pipeline{
             }
           }
         }
+
         
-              
+         stage('Push Image'){
+          steps{
+            script{
+              docker.withRegistry(ECRURL, ECRCRED)
+              {
+                docker.image(IMAGE).push()
+              }
+            }
+          }
+        }     
+
 
          stage('Terraform init'){
 
