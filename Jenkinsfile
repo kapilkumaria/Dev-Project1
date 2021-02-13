@@ -1,6 +1,8 @@
 pipeline{
 
-  agent any
+  agent {
+    label 'ubuntu'
+  }
 
   tools {
        terraform 'terraform'
