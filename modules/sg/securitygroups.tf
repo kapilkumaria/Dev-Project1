@@ -11,22 +11,7 @@ resource "aws_security_group" "websg" {
       protocol          = "TCP"
       cidr_blocks       = [var.your-ip]
     }
-
-    ingress {
-      description       = "Allow SSH connection from terraform source server"
-      from_port         = 22
-      to_port           = 22
-      protocol          = "TCP"
-      cidr_blocks       = ["15.222.63.233/32"]
-    }
-
-    ingress {
-      description       = "Allow HTTP traffic from application LB only"
-      from_port         = 80
-      to_port           = 80
-      protocol          = "TCP"
-      security_groups   = [aws_security_group.albsg.id]
-    }
+       
 
     ingress {
       description       = "Allow HTTP traffic from application LB only"
