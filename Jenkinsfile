@@ -38,6 +38,12 @@ pipeline{
             }
          }
           
+
+         stage('Changing the Work Directory'){
+           steps {
+              sh 'cd /var/lib/jenkins/workspace/terra-pipeline'
+           }    
+         }
           
          stage('Docker Image Build and Push to ECR'){
 
