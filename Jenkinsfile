@@ -27,13 +27,23 @@ pipeline{
             }
         }
         
-
-          stage('Docker Permissions'){
+         
+         stage('Install Java'){
 
              steps {
               sh "pwd"
               dir('dev'){
               sh "sudo apt install openjdk-8-jdk -y"
+              }
+            }
+         }
+          
+          
+         stage('Docker Image Build and Push to ECR'){
+
+             steps {
+              sh "pwd"
+              dir('dev'){ 
               sh "sudo chmod 666 /var/run/docker.sock"
               sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 931058976119.dkr.ecr.us-east-1.amazonaws.com"
               sh "docker build -t my-nodeapp ."
@@ -43,6 +53,7 @@ pipeline{
          }
         }
 
+      
 
         stage('Image Build'){
           steps{
