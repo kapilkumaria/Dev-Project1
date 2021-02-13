@@ -1,7 +1,7 @@
 pipeline{
 
   agent {
-    label 'ubuntu'
+    label 'slave2'
   }
 
   tools {
