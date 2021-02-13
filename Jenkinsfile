@@ -46,7 +46,6 @@ pipeline{
               dir('dev'){ 
               sh "sudo chmod 666 /var/run/docker.sock"
               sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 931058976119.dkr.ecr.us-east-1.amazonaws.com"
-              sh 'cd /var/lib/jenkins/workspace/terra-pipeline/'
               sh "docker build -t my-nodeapp ."
               sh "docker tag my-nodeapp:latest 931058976119.dkr.ecr.us-east-1.amazonaws.com/my-nodeapp:latest"
               sh "docker push 931058976119.dkr.ecr.us-east-1.amazonaws.com/my-nodeapp:latest"
