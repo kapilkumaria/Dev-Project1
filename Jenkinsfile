@@ -90,6 +90,12 @@ pipeline{
           }
          }
         }
+
+        post {
+          always {
+            cleanWs()
+          }
+        }
   }
 }
 
