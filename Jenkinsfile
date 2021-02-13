@@ -89,16 +89,17 @@ pipeline{
              sh 'terraform destroy -auto-approve'   
           }
          }
-        }
+      }
+  }
 
         
   post {
     always {
       cleanWs()
       }
-    }
-   }
+  }
 }
+
 
 
 
