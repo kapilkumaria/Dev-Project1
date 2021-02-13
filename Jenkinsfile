@@ -39,7 +39,7 @@ pipeline{
          }
           
                   
-         stage('Docker Image Build and Push to ECR'){
+         stage('Docker Image Build and Tag the Image'){
 
              steps {
               sh "pwd"
@@ -49,21 +49,17 @@ pipeline{
               sh "pwd"
               sh "docker build -t my-nodeapp ."
               sh "docker tag my-nodeapp:latest 931058976119.dkr.ecr.us-east-1.amazonaws.com/my-nodeapp:latest"
-              sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 931058976119.dkr.ecr.us-east-1.amazonaws.com"
-              
-         }
-        }
-       }
-      
-
-        stage('Image Build'){      
-          steps{
-              script{
-                docker.build('$IMAGE')
               }
-          }
-        }
-          
+             }
+         }
+
+
+         stage('Retrieve An Authentication Token and Authenticate Docker Client'){
+           steps{
+              sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 931058976119.dkr.ecr.us-east-1.amazonaws.com"
+           }
+         }
+                  
         
          stage('Push Image'){
           steps{
