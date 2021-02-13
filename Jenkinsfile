@@ -91,16 +91,18 @@ pipeline{
          }
         }
 
-         stage('Workspace Cleanup'){
-
-           steps {
-             post {
-                always {
-                    cleanWs()
-                  }
-                }
-             }
-         }
+        stage('Workspace Cleanup'){
+           post {
+                 always {
+                 cleanWs(cleanWhenNotBuilt: false,
+                    deleteDirs: true,
+                    disableDeferredWipeout: true,
+                    notFailBuild: true,
+                    patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
+                               [pattern: '.propsfile', type: 'EXCLUDE']])
+            }
+          }
+        }
      }
 }
 
