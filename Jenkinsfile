@@ -67,14 +67,11 @@ pipeline{
         
          stage('Push Image'){
           steps{
-            script{
-              docker.withRegistry(ECRURL, ECRCRED)
-              {
-                docker.image(IMAGE).push()
-              }
+               sh "docker push 931058976119.dkr.ecr.us-east-1.amazonaws.com/my-nodeapp:latest"
             }
-          }
-        }     
+        }
+          
+            
 
 
          stage('Terraform init'){
