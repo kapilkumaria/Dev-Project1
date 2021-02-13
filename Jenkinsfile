@@ -6,15 +6,6 @@ pipeline{
   }
 
 
-  environment {
-    VERSION = "${BUILD_NUMBER}"
-    PROJECT = 'my-nodeapp'
-    IMAGE = "$PROJECT:$VERSION"
-    ECRURL = 'https://931058976119.dkr.ecr.us-east-1.amazonaws.com/my-nodeapp'
-    ECRCRED = 'ecr:us-east-1:awscredentials'
-    }
-
-
   tools {
        terraform 'terraform'
    }
@@ -27,17 +18,7 @@ pipeline{
             }
          }
         
-         
-         stage('Install Java'){
-
-             steps {
-              sh "pwd"
-              dir('dev'){
-              sh "sudo apt install openjdk-8-jdk -y"
-              }
-            }
-         }
-          
+                          
                   
          stage('Docker Image Build and Tag the Image'){
 
@@ -68,8 +49,6 @@ pipeline{
         }
           
             
-
-
          stage('Terraform init'){
 
            steps {
