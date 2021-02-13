@@ -8,10 +8,10 @@ pipeline{
 
   environment {
     VERSION = "${BUILD_NUMBER}"
-    PROJECT = 'nodeapp'
+    PROJECT = 'my-nodeapp'
     IMAGE = "$PROJECT:$VERSION"
     ECRURL = 'https://931058976119.dkr.ecr.us-east-1.amazonaws.com/my-nodeapp'
-    ECRCRED = 'ecr:us-east-1:aws-credentials'
+    ECRCRED = 'ecr:us-east-1:awscredentials'
     }
 
 
@@ -58,15 +58,10 @@ pipeline{
 
         stage('Image Build'){      
           steps{
-            script{
-              docker.withRegistry(ECRURL, ECRCRED)
-              {
-                docker.image(IMAGE).push()
+                docker.build('$IMAGE')
               }
-            }
-          }
         }
-
+          
         
          stage('Push Image'){
           steps{
