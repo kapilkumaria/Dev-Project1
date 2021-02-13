@@ -15,11 +15,11 @@ pipeline{
     }
 
 
-    tools {
+  tools {
        terraform 'terraform'
-    }
+   }
     
-    stages{
+  stages{
         
          stage('Git Checkout'){
             steps{
@@ -65,8 +65,8 @@ pipeline{
         }
 
 
-              
-        steps{
+        stage('Image Build'){      
+          steps{
             script{
               docker.withRegistry(ECRURL, ECRCRED)
               {
@@ -121,7 +121,7 @@ pipeline{
           }
          }
         }
-    
+  }
 }
 
 
