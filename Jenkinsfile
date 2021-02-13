@@ -58,8 +58,10 @@ pipeline{
 
         stage('Image Build'){      
           steps{
+              script{
                 docker.build('$IMAGE')
               }
+          }
         }
           
         
