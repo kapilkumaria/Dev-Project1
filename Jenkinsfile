@@ -8,11 +8,6 @@ pipeline{
   environment {
       AWS_ACCESS_KEY_ID = credentials('17437a28-ca2b-4fff-a6a0-dd7b0978a20d')
       AWS_SECRET_ACCESS_KEY = credentials('17437a28-ca2b-4fff-a6a0-dd7b0978a20d') 
-      VERSION = "${BUILD_NUMBER}"
-      PROJECT = 'my-nodeapp'
-      IMAGE = "" 
-      ECRURL = 'https://931058976119.dkr.ecr.us-east-1.amazonaws.com'
-      ECRCRED = 'ecr:us-east-1:17437a28-ca2b-4fff-a6a0-dd7b0978a20d'
    }
 
 
@@ -54,13 +49,8 @@ pipeline{
         
          stage('Push Image'){
           steps{
-            script{
-              docker.withRegistry(ECRURL, ECRCRED)
-              {
-                 docker.image.push()
+             sh "docker push 931058976119.dkr.ecr.us-east-1.amazonaws.com/my-nodeapp:latest"
               }
-            }
-           } 
          }
          
           
