@@ -39,7 +39,7 @@ pipeline{
               sh "sudo chmod 666 /var/run/docker.sock"
               sh "pwd"
               sh "docker build -t my-nodeapp ."
-              sh "docker tag my-nodeapp 931058976119.dkr.ecr.us-east-1.amazonaws.com"
+              sh "docker tag my-nodeapp:latest 931058976119.dkr.ecr.us-east-1.amazonaws.com"
               }
              }
          }
