@@ -49,9 +49,11 @@ pipeline{
         
          stage('Push Image'){
           steps{
-               dockerImage.push()
-            }
-        }
+             script{
+                 dockerImage.push()
+             } 
+           }
+         }
           
             
          stage('Terraform init'){
