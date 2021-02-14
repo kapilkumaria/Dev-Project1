@@ -8,6 +8,9 @@ pipeline{
   environment {
       AWS_ACCESS_KEY_ID = credentials('17437a28-ca2b-4fff-a6a0-dd7b0978a20d')
       AWS_SECRET_ACCESS_KEY = credentials('17437a28-ca2b-4fff-a6a0-dd7b0978a20d')  
+      registry = "931058976119.dkr.ecr.us-east-1.amazonaws.com/my-nodeapp"
+      registryCredential = 'awscredentials'
+      dockerImage = ''
   }
 
 
@@ -49,11 +52,12 @@ pipeline{
         
          stage('Push Image'){
           steps{
-             script{
+             docker.withRegistry('931058976119.dkr.ecr.us-east-1.amazonaws.com/my-nodeapp'){
                  dockerImage.push()
-             } 
-           }
+             }
+           } 
          }
+         
           
             
          stage('Terraform init'){
